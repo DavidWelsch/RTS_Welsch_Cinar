@@ -1,27 +1,31 @@
---------------- Build Started: 05/24/2018 16:38:17 Project: WCETfreeSoC2_1, Configuration: ARM GCC 5.4-2016-q2-update Release ---------------
+--------------- Build Started: 05/24/2018 17:16:48 Project: WCETfreeSoC2_1, Configuration: ARM GCC 5.4-2016-q2-update Release ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Release/main.lst -g -D NDEBUG -Wall -ffunction-sections -ffat-lto-objects -Os -c main.c -o .\CortexM3\ARM_GCC_541\Release\main.o
+main.c: In function 'BCETWCET':
+main.c:76:13: warning: unused variable 'x' [-Wunused-variable]
+         int x = 1;
+             ^
 main.c: In function 'main':
-main.c:248:25: warning: variable 'x' set but not used [-Wunused-but-set-variable]
+main.c:300:25: warning: variable 'x' set but not used [-Wunused-but-set-variable]
                      int x = TestMethod1(1,2,3);
                          ^
-main.c:128:12: warning: variable 'ld' set but not used [-Wunused-but-set-variable]
+main.c:180:12: warning: variable 'ld' set but not used [-Wunused-but-set-variable]
      double ld = 0.0;
             ^
-main.c:127:11: warning: variable 'lf' set but not used [-Wunused-but-set-variable]
+main.c:179:11: warning: variable 'lf' set but not used [-Wunused-but-set-variable]
      float lf = 0.0;
            ^
-main.c:125:9: warning: variable 'lj' set but not used [-Wunused-but-set-variable]
+main.c:177:9: warning: variable 'lj' set but not used [-Wunused-but-set-variable]
      int lj;                 // a lokal var
          ^
 arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Release\WCETfreeSoC2_1.a .\CortexM3\ARM_GCC_541\Release\UART.o .\CortexM3\ARM_GCC_541\Release\UART_PM.o .\CortexM3\ARM_GCC_541\Release\UART_INT.o .\CortexM3\ARM_GCC_541\Release\UART_BOOT.o .\CortexM3\ARM_GCC_541\Release\Pin_USR_SW1.o .\CortexM3\ARM_GCC_541\Release\isr_UART_RX.o .\CortexM3\ARM_GCC_541\Release\Pin_USR_LED.o .\CortexM3\ARM_GCC_541\Release\StatusReg_0.o .\CortexM3\ARM_GCC_541\Release\StatusReg_1.o .\CortexM3\ARM_GCC_541\Release\CLK_Counter.o .\CortexM3\ARM_GCC_541\Release\Control_Reg.o .\CortexM3\ARM_GCC_541\Release\Control_Reg_PM.o .\CortexM3\ARM_GCC_541\Release\Clock_Sample.o .\CortexM3\ARM_GCC_541\Release\UART_IntClock.o .\CortexM3\ARM_GCC_541\Release\CyDmac.o .\CortexM3\ARM_GCC_541\Release\CyFlash.o .\CortexM3\ARM_GCC_541\Release\CyLib.o .\CortexM3\ARM_GCC_541\Release\cyPm.o .\CortexM3\ARM_GCC_541\Release\CySpc.o .\CortexM3\ARM_GCC_541\Release\cyutils.o .\CortexM3\ARM_GCC_541\Release\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Release\StatusReg_2.o .\CortexM3\ARM_GCC_541\Release\StatusReg_3.o .\CortexM3\ARM_GCC_541\Release\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Release\WCETfreeSoC2_1.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\welsc_000\Google Drive\h_da Studium\3. Semester\Real Time Systems\Labs\Lab 3\Beispiel\WCETfreeSoC2-Sample\WCETfreeSoC2_1.cydsn\CortexM3\ARM_GCC_541\Release\WCETfreeSoC2_1.elf" .\CortexM3\ARM_GCC_541\Release\main.o .\CortexM3\ARM_GCC_541\Release\help.o .\CortexM3\ARM_GCC_541\Release\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Release\cymetadata.o .\CortexM3\ARM_GCC_541\Release\Cm3Start.o .\CortexM3\ARM_GCC_541\Release\WCETfreeSoC2_1.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Release\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Release/WCETfreeSoC2_1.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Os -ffat-lto-objects -Wl,--end-group
-cyelftool.exe -C "C:\Users\welsc_000\Google Drive\h_da Studium\3. Semester\Real Time Systems\Labs\Lab 3\Beispiel\WCETfreeSoC2-Sample\WCETfreeSoC2_1.cydsn\CortexM3\ARM_GCC_541\Release\WCETfreeSoC2_1.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
+arm-none-eabi-gcc.exe -Wl,--start-group -o "D:\Hochschule\RTS Git\RTS_Welsch_Cinar\WCETfreeSoC2_1.cydsn\CortexM3\ARM_GCC_541\Release\WCETfreeSoC2_1.elf" .\CortexM3\ARM_GCC_541\Release\main.o .\CortexM3\ARM_GCC_541\Release\help.o .\CortexM3\ARM_GCC_541\Release\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Release\cymetadata.o .\CortexM3\ARM_GCC_541\Release\Cm3Start.o .\CortexM3\ARM_GCC_541\Release\WCETfreeSoC2_1.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Release\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Release/WCETfreeSoC2_1.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Os -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C "D:\Hochschule\RTS Git\RTS_Welsch_Cinar\WCETfreeSoC2_1.cydsn\CortexM3\ARM_GCC_541\Release\WCETfreeSoC2_1.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
 No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
-cyelftool.exe -S "C:\Users\welsc_000\Google Drive\h_da Studium\3. Semester\Real Time Systems\Labs\Lab 3\Beispiel\WCETfreeSoC2-Sample\WCETfreeSoC2_1.cydsn\CortexM3\ARM_GCC_541\Release\WCETfreeSoC2_1.elf"
-Flash used: 6392 of 262144 bytes (2,4 %).
+cyelftool.exe -S "D:\Hochschule\RTS Git\RTS_Welsch_Cinar\WCETfreeSoC2_1.cydsn\CortexM3\ARM_GCC_541\Release\WCETfreeSoC2_1.elf"
+Flash used: 8320 of 262144 bytes (3,2 %).
 SRAM used: 2697 of 65536 bytes (4,1 %). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 05/24/2018 16:38:18 ---------------
+--------------- Build Succeeded: 05/24/2018 17:16:49 ---------------

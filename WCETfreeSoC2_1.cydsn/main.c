@@ -63,9 +63,13 @@ int TestMethod1(int a, int b, int c){
 int TestMethod2(int a, int b, int c, int d, int e, int f){
     return (a+b+c+d+e+f);
 }
+void TestMethod3(){
+    ;
+}
 
 void BCETWCET(){
-    uint32 max, min, avg = 0;
+    uint32 max = 0, min = 2000000000, sum = 0;
+    float avg = 0;
     uint32 cnt;
     for (int i = 0; i < 10000; i++) {
         CNT_START_RES;  // reset counter
@@ -75,12 +79,41 @@ void BCETWCET(){
             max = cnt;
         if (cnt < min)
             min = cnt;
-        avg += cnt;
+        
+        sum = sum + cnt;
     }
-    sprintf( buffer, "Store: min: %lu max: %lu avg: %f\n\r", min, max, (float)avg/10000 );
+    avg = sum / 10000;
+    sprintf( buffer, "Store: min: %lu max: %lu avg: %f \n\r", min, max, avg );
     UART_PutString( buffer );
-    
-    
+    for (int i = 0; i < 10000; i++) {
+        int j = 50;
+        CNT_START_RES;  // reset counter
+        j = j*3;
+        CNT_LAP_STOP_32( cnt );   // get counter value, stop counter
+        if (cnt > max)
+            max = cnt;
+        if (cnt < min)
+            min = cnt;
+        
+        sum = sum + cnt;
+    }
+    avg = sum / 10000;
+    sprintf( buffer, "Mulitply: min: %lu max: %lu avg: %f\n\r", min, max, avg );
+    UART_PutString( buffer );
+    for (int i = 0; i < 10000; i++) {
+        CNT_START_RES;  // reset counter
+        TestMethod3();
+        CNT_LAP_STOP_32( cnt );   // get counter value, stop counter
+        if (cnt > max)
+            max = cnt;
+        if (cnt < min)
+            min = cnt;
+        
+        sum = sum + cnt;
+    }
+    avg = (sum / 10000);
+    sprintf( buffer, "Call Method: min: %lu max: %lu avg: %f\n\r", min, max, avg);
+    UART_PutString( buffer );
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -278,6 +311,9 @@ int main()
                     CNT_LAP_STOP_32( cnt );   // get counter value, stop counter
                     sprintf( buffer, "Inline: %lu\n\r", cnt );
                     UART_PutString( buffer );
+                    break;
+                case 'e':
+                    BCETWCET();
                     break;
                 default:    // repeat char
                     UART_PutChar( cInput );
