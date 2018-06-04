@@ -315,6 +315,33 @@ int main()
                 case 'e':
                     BCETWCET();
                     break;
+ 		case 'p':
+                    usrLED(0u);     // switch the LED at beginning off
+                    CNT_START_RES;
+                    usrLED( 1u );   // on
+                    CyDelay( 1 );
+                    //CyDelay( 10 );
+                    //CyDelay( 100 );
+                    //CyDelay( 1000 );
+                    usrLED( 0u );   // off 
+                    CNT_LAP_STOP_32( cnt );   // get counter value, stop counter
+                    sprintf( buffer, "LED: %lu\n\r", cnt );
+                    UART_PutString( buffer );                    
+                    break;
+                case 'u':
+                    while (Pin_USR_SW1_Read()) {
+
+                    }
+                     CNT_START_RES;
+                     usrLED(1u);
+                    while (!Pin_USR_SW1_Read()) {
+
+                    }
+                    usrLED(0u);
+                    CNT_LAP_STOP_32( cnt );   // get counter value, stop counter
+                    sprintf( buffer, "LED_Button: %lu\n\r", cnt );
+                    UART_PutString( buffer );                      
+                    break;
                 default:    // repeat char
                     UART_PutChar( cInput );
                     break;
